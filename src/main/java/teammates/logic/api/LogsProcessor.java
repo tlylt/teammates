@@ -11,7 +11,6 @@ import teammates.common.datatransfer.logs.LogEvent;
 import teammates.common.datatransfer.logs.QueryLogsParams;
 import teammates.common.util.Config;
 import teammates.logic.external.GoogleCloudLoggingService;
-import teammates.logic.external.LocalLoggingService;
 import teammates.logic.external.LogService;
 
 /**
@@ -27,7 +26,7 @@ public class LogsProcessor {
 
     LogsProcessor() {
         if (Config.isDevServer()) {
-            service = new LocalLoggingService();
+            service = new GoogleCloudLoggingService();
         } else {
             service = new GoogleCloudLoggingService();
         }
